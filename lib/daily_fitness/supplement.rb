@@ -23,7 +23,7 @@ class DailyFitness::Supplement
     article.description = doc.search("#DPG_Supplementation_Main .cms-article-list--article.hero .description").text.strip
     article.url = doc.search("#DPG_Supplementation_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
 
-    # binding.pry
+    #binding.pry
     article
   end
 

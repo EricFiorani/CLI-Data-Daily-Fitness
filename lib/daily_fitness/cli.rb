@@ -61,8 +61,14 @@ class DailyFitness::CLI
   end
 
   def motivation_article
-
-    puts "this is an article"
+    @article = DailyFitness::Motivation.info
+    @article.each do |article|
+      puts "------------------------"
+      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
+      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
+    end
+    list
   end
 
   def choose
