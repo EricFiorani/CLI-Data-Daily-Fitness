@@ -11,7 +11,7 @@ class DailyFitness::CLI
   def introductory_message
     #Introductory message is first to pop up when activating the CLI.
     puts "Hello! Are you ready to supplement your fitness lifestyle?".colorize(:green) + "
-    \nChoose between three options.
+    \nChoose between four options.
     Press “1” for the Nutritional Article of the day,
     Press “2” for the Workout Article of the day,
     Press “3” for the Supplementation Article of the day,
