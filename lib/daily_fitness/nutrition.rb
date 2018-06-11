@@ -19,9 +19,9 @@ class DailyFitness::Nutrition
     doc = Nokogiri::HTML(open("https://bodybuilding.com"))
 
     article = self.new
-    article.title = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .title").text.strip
-    article.description = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .description").text.strip
-    article.url = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
+    article.title = doc.search("#DPG_Nutrition_Main .cms-article-list--article.hero .title").text.strip
+    article.description = doc.search("#DPG_Nutrition_Main .cms-article-list--article.hero .description").text.strip
+    article.url = doc.search("#DPG_Nutrition_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
 
     # binding.pry
     article

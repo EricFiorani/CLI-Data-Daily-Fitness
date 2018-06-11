@@ -35,12 +35,18 @@ class DailyFitness::CLI
     Press “2” for the Workout Article of the day,
     Press “3” for the Supplementation Article of the day,
     Press “4” for the Motivational Article of the day,
-    Or type 'exit' if you do not want to continue"
+    Or type 'exit' if you do not want to continue."
   end
 
   def nutritional_article
-    # @nutritional_article = DailyFitness::Nutrition.info
-    puts "this is an article"
+    @article = DailyFitness::Nutrition.info
+    @article.each do |article|
+      puts "------------------------"
+      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
+      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
+    end
+    list
   end
 
   def supplement_article
