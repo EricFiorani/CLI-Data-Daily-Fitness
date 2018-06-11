@@ -11,7 +11,7 @@ class DailyFitness::Workout
 
     workout << self.bodybuilding
 
-    workout
+    workout1
   end
 
   def self.bodybuilding
