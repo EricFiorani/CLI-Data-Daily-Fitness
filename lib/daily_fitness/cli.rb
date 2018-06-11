@@ -9,7 +9,7 @@ class DailyFitness::CLI
   end
 
   def introductory_message
-    puts "Hello! Are you ready to supplement your fitness lifestyle?
+    puts "Hello! Are you ready to supplement your fitness lifestyle?".colorize(:green) + "
     \nChoose between three options.
     Press “1” for the Nutritional Article of the day,
     press “2” for the Workout Article of the day,
@@ -19,7 +19,21 @@ class DailyFitness::CLI
   end
 
   def workout_article
-    @workout_article = DailyFitness::Workout.info
+    @article = DailyFitness::Workout.info
+    @article.each do |article|
+      puts "------------------------"
+      puts "#{article.title}".colorize(:green) + "\n\n#{article.description}" + "#{article.url}".colorize(:light_blue)
+      puts "------------------------"
+    end
+    list
+  end
+
+  def list
+    puts "\nPress “1” for the Nutritional Article of the day,
+    press “2” for the Workout Article of the day,
+    press “3” for the Supplement Article of the day,
+    press “4” for the Motivational Article of the day,
+    or type 'exit' if you do not want to continue"
   end
 
   def nutritional_article
@@ -67,7 +81,7 @@ class DailyFitness::CLI
   end
 
   def closing_message
-    puts "\nCome back later for daily fitness information and motivation!"
+    puts "\nCome back later for daily fitness information and motivation, Goodbye!".colorize(:green)
   end
 
 end

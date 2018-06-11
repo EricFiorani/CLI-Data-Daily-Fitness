@@ -6,22 +6,22 @@ class DailyFitness::Workout
     self.scrape_article
   end
 
-  def scrape_article
-    workout = []
+  def self.scrape_article
+    article = []
 
-    workout << self.bodybuilding
+    article << self.bodybuilding
 
-    workout1
+    article
   end
 
   def self.bodybuilding
 
     doc = Nokogiri::HTML(open("https://bodybuilding.com"))
 
-    workout = self.new
-    workout.title = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .title").text.strip
-    workout.description = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .description").text.strip
-    workout.url = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
+    article = self.new
+    article.title = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .title").text.strip
+    article.description = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero .description").text.strip
+    article.url = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
 
     # binding.pry
     # info = self.new
@@ -29,7 +29,7 @@ class DailyFitness::Workout
     # info.description = "this is an abstract summary"
     # info.url = "https://bodybuilding.com"
     #
-    workout
+    article
   end
 
 end
