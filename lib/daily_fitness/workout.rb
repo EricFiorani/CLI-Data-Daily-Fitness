@@ -24,11 +24,6 @@ class DailyFitness::Workout
     article.url = doc.search("#DPG_Workouts_Main .cms-article-list--article.hero a.thumb-container").map {|link| link['href'] }
 
     # binding.pry
-    # info = self.new
-    # info.title = "this is a title"
-    # info.description = "this is an abstract summary"
-    # info.url = "https://bodybuilding.com"
-    #
     article
   end
 
