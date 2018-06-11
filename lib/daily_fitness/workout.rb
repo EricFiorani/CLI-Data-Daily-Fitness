@@ -3,15 +3,15 @@ class DailyFitness::Workout
   attr_accessor :title, :description, :url
 
   def self.info
-    self.scrape_article
+    self.scrape_article #.Info is called from CLI.rb to produce the scraped article.
   end
 
   def self.scrape_article
-    article = []
+    article = [] #Creates an empty array of the article
 
-    article << self.bodybuilding
+    article << self.bodybuilding #Adds the scraped data to the article array
 
-    article
+    article #Calls on the array to produce the data.
   end
 
   def self.bodybuilding

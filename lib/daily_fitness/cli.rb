@@ -70,6 +70,7 @@ class DailyFitness::CLI
 
   def workout_article
     @article = DailyFitness::Workout.info
+    #Goes into the DailyFitness Workout Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
@@ -81,6 +82,7 @@ class DailyFitness::CLI
 
   def nutritional_article
     @article = DailyFitness::Nutrition.info
+    #Goes into the DailyFitness Nutrition Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
@@ -92,6 +94,7 @@ class DailyFitness::CLI
 
   def supplement_article
     @article = DailyFitness::Supplement.info
+    #Goes into the DailyFitness Supplment Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
@@ -103,6 +106,7 @@ class DailyFitness::CLI
 
   def motivation_article
     @article = DailyFitness::Motivation.info
+    #Goes into the DailyFitness Motivation Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
