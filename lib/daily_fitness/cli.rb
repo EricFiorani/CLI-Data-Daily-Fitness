@@ -15,8 +15,7 @@ class DailyFitness::CLI
     Press “1” for the Nutritional Article of the day,
     Press “2” for the Workout Article of the day,
     Press “3” for the Supplementation Article of the day,
-    Press “4” for the Motivational Article of the day,
-    Or type 'exit' if you do not want to continue"
+    Press “4” for the Motivational Article of the day."
   end
 
   def choose
