@@ -1,5 +1,19 @@
 # DailyFitness
 
+Welcome to Daily Fitness!
+
+The purpose of this gem is to extract four featured articles in four different
+categories to provide information to one's fitness lifestyle.
+
+These articles are scraped from BodyBuilding.com and it coded to change as they
+update their featured articles.
+
+The four different categories are:
+    - Workout/Exercise
+    - Nutritional
+    - Supplementation
+    - Motivation
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/daily_fitness`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
