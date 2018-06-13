@@ -9,7 +9,7 @@ class DailyFitness::Workout
   def self.scrape_article
     article = [] #Creates an empty array of the article
 
-    article << self.bodybuilding #Adds the scraped data to the article array
+    article << self.featured #Adds the scraped data to the article array
     article << self.sub_article_1
     article << self.sub_article_2
     article << self.sub_article_3
@@ -17,7 +17,7 @@ class DailyFitness::Workout
     article #Calls on the array to produce the data.
   end
 
-  def self.bodybuilding
+  def self.featured
 
     doc = Nokogiri::HTML(open("https://bodybuilding.com"))
 
