@@ -14,10 +14,6 @@ The four different categories are:
     - Supplementation
     - Motivation
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/daily_fitness`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -36,7 +32,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First make sure you are in the proper directory to call bin.
+
+Then simple type ./bin/daily-fitness and your application will start.
 
 ## Development
 
