@@ -3,8 +3,9 @@ class DailyFitness::CLI
 
   def call
     introductory_message
-    doc
     #Calls the intro method
+    doc
+    #minizes the amount of times Nokogiri is loaded
     choose
     #Calling choose method
   end
@@ -37,7 +38,7 @@ class DailyFitness::CLI
         when "1"
           nutritional_article(doc)
         when "2"
-          workout_article
+          workout_article(doc)
         when "3"
           supplement_article
         when "4"
@@ -72,8 +73,8 @@ class DailyFitness::CLI
     puts "\nCome back later for daily fitness information and motivation, Goodbye!".colorize(:green)
   end
 
-  def workout_article
-    @article = DailyFitness::Workout.info
+  def workout_article(doc)
+    @article = DailyFitness::Workout.info(doc)
     #Goes into the DailyFitness Workout Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
