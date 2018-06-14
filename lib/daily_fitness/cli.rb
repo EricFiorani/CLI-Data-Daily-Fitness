@@ -3,9 +3,14 @@ class DailyFitness::CLI
 
   def call
     introductory_message
+    doc
     #Calls the intro method
     choose
     #Calling choose method
+  end
+
+  def doc
+    @doc ||= Nokogiri::HTML(open("https://bodybuilding.com"))
   end
 
   def introductory_message
@@ -30,7 +35,7 @@ class DailyFitness::CLI
         #each case number is assigned to a specific section in bodybuilding.com
         #covering various topics.
         when "1"
-          nutritional_article
+          nutritional_article(doc)
         when "2"
           workout_article
         when "3"
@@ -79,8 +84,8 @@ class DailyFitness::CLI
     list
   end
 
-  def nutritional_article
-    @article = DailyFitness::Nutrition.info
+  def nutritional_article(doc)
+    @article = DailyFitness::Nutrition.info(doc)
     #Goes into the DailyFitness Nutrition Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
