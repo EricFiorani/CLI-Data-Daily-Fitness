@@ -2,8 +2,8 @@
 
 Welcome to Daily Fitness!
 
-The purpose of this gem is to extract four featured articles in four different
-categories to provide information to one's fitness lifestyle.
+The purpose of this gem is to extract four articles in four different
+categories to provide information to one's fitness lifestyle featured on the bodybuilding website homepage.
 
 These articles are scraped from BodyBuilding.com and it coded to change as they
 update their featured articles.
