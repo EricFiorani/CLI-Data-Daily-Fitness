@@ -40,7 +40,7 @@ class DailyFitness::CLI
         when "2"
           workout_article(doc)
         when "3"
-          supplement_article
+          supplement_article(doc)
         when "4"
           motivation_article
         when "exit"
@@ -97,8 +97,8 @@ class DailyFitness::CLI
     list
   end
 
-  def supplement_article
-    @article = DailyFitness::Supplement.info
+  def supplement_article(doc)
+    @article = DailyFitness::Supplement.info(doc)
     #Goes into the DailyFitness Supplment Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"

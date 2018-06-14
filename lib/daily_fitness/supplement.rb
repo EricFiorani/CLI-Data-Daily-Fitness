@@ -2,24 +2,22 @@ class DailyFitness::Supplement
 
   attr_accessor :title, :description, :url
 
-  def self.info
-    self.scrape_article #.Info is called from CLI.rb to produce the scraped article.
+  def self.info(doc)
+    self.scrape_article(doc) #.Info is called from CLI.rb to produce the scraped article.
   end
 
-  def self.scrape_article
+  def self.scrape_article(doc)
     article = [] #Creates an empty array of the article
 
-    article << self.featured #Adds the scraped data to the article array
-    article << self.sub_article_1
-    article << self.sub_article_2
-    article << self.sub_article_3
-    
+    article << self.featured(doc) #Adds the scraped data to the article array
+    article << self.sub_article_1(doc)
+    article << self.sub_article_2(doc)
+    article << self.sub_article_3(doc)
+
     article #Returns on the array to produce the data.
   end
 
-  def self.featured
-
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
+  def self.featured(doc)
 
     article = self.new
     article.title = doc.search("#DPG_Supplementation_Main .cms-article-list--article.hero .title").text.strip
@@ -30,9 +28,7 @@ class DailyFitness::Supplement
     article
   end
 
-  def self.sub_article_1
-
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
+  def self.sub_article_1(doc)
 
     article = self.new
     article.title = doc.search("#DPG_Supplementation_Sub_1 .title").text.strip
@@ -43,9 +39,7 @@ class DailyFitness::Supplement
     article
   end
 
-  def self.sub_article_2
-
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
+  def self.sub_article_2(doc)
 
     article = self.new
     article.title = doc.search("#DPG_Supplementation_Sub_2 .title").text.strip
@@ -56,9 +50,7 @@ class DailyFitness::Supplement
     article
   end
 
-  def self.sub_article_3
-
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
+  def self.sub_article_3(doc)
 
     article = self.new
     article.title = doc.search("#DPG_Supplementation_Sub_3 .title").text.strip
