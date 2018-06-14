@@ -42,7 +42,7 @@ class DailyFitness::CLI
         when "3"
           supplement_article(doc)
         when "4"
-          motivation_article
+          motivation_article(doc)
         when "exit"
           closing_message
         else
@@ -109,8 +109,8 @@ class DailyFitness::CLI
     list
   end
 
-  def motivation_article
-    @article = DailyFitness::Motivation.info
+  def motivation_article(doc)
+    @article = DailyFitness::Motivation.info(doc)
     #Goes into the DailyFitness Motivation Class and calls the self.info method
     @article.each do |article|
       puts "------------------------"
