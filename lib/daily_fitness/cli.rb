@@ -4,10 +4,10 @@ class DailyFitness::CLI
   def call
     introductory_message
     #Calls the intro method
-    doc
-    #minizes the amount of times Nokogiri is loaded
     choose
     #Calling choose method
+    doc
+    #minizes the amount of times Nokogiri is loaded
   end
 
   def doc
@@ -76,48 +76,48 @@ class DailyFitness::CLI
   def workout_article(doc)
     @article = DailyFitness::Workout.info(doc)
     #Goes into the DailyFitness Workout Class and calls the self.info method
+    puts "------------Workout Articles of the Day------------"
     @article.each do |article|
-      puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
       "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
     end
-    puts "\n------------------------"
     list
   end
 
   def nutritional_article(doc)
     @article = DailyFitness::Nutrition.info(doc)
     #Goes into the DailyFitness Nutrition Class and calls the self.info method
+    puts "------------Nutritional Articles of the Day------------"
     @article.each do |article|
-      puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
       "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
     end
-    puts "\n------------------------"
     list
   end
 
   def supplement_article(doc)
     @article = DailyFitness::Supplement.info(doc)
     #Goes into the DailyFitness Supplment Class and calls the self.info method
+    puts "------------Supplementation Articles of the Day------------"
     @article.each do |article|
-      puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
       "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
     end
-    puts "\n------------------------"
     list
   end
 
   def motivation_article(doc)
     @article = DailyFitness::Motivation.info(doc)
     #Goes into the DailyFitness Motivation Class and calls the self.info method
+    puts "------------Motivational Articles of the Day------------"
     @article.each do |article|
-      puts "------------------------"
       puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
       "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
+      puts "\n------------------------"
     end
-    puts "\n------------------------"
     list
   end
 end
