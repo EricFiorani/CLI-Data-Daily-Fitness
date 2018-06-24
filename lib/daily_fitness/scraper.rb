@@ -16,7 +16,7 @@ class Scraper
       title = product.css(".FeaturedProduct-title").text
       price = product.css(".FeaturedProduct-price").text
       rating = product.css(".FeaturedProduct-rating").text
-      link = product.css(".FeaturedProduct-title").map {|link| link['href'] }
+      link = product.css(".FeaturedProduct-title a").attr('href')
       products << {promotion: promotion, title: title, price: price, rating: rating, link: link}
     end
     products

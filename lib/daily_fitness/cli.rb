@@ -61,7 +61,7 @@ class DailyFitness::CLI
   end
 
   def closing_message
-    puts "\nCome back later for daily fitness information and motivation, Goodbye!".colorize(:green)
+    puts "\nCome back later for daily fitness information, motivation, and promotions, Goodbye!".colorize(:green)
   end
 end
 
@@ -73,7 +73,7 @@ end
 def display_deals
    puts "------------Top Deals of the Day------------"
   Deals.all.each do |product|
-    puts "\n#{product.title.upcase}".colorize(:green) + " - #{product.price}\n" + "
+    puts "\n#{product.title.upcase}".colorize(:green) + " - " + "#{product.price}\n".colorize(:white) + "
       Current Promotion -" + " #{product.promotion}\n".colorize(:red) + "
       This product has a rating of: #{product.rating}
       Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
