@@ -6,8 +6,6 @@ class DailyFitness::CLI
     #Calls the intro method
     choose
     #Calling choose method
-    doc
-    #minizes the amount of times Nokogiri is loaded
   end
 
   def doc
@@ -18,10 +16,8 @@ class DailyFitness::CLI
     #Introductory message is first to pop up when activating the CLI.
     puts "Hello! Are you ready to supplement your fitness lifestyle?".colorize(:green) + "
     \nChoose between four options.
-    Press “1” for the Nutritional Articles of the day,
-    Press “2” for the Workout Articles of the day,
-    Press “3” for the Supplementation Articles of the day,
-    Press “4” for the Motivational Articles of the day."
+    Press “1” for the Top Deals of the day,
+    Press “2” for the Top Articles of the day"
   end
 
   def choose
@@ -39,20 +35,18 @@ class DailyFitness::CLI
           nutritional_article(doc)
         when "2"
           workout_article(doc)
-        when "3"
-          supplement_article(doc)
-        when "4"
-          motivation_article(doc)
+        # when "3"
+        #   supplement_article(doc)
+        # when "4"
+        #   motivation_article(doc)
         when "exit"
           closing_message
         else
           #If the user does not enter a number 1-4, this message will remind
           #them to go over the rules again.
           puts "That is not an option,
-          Press “1” for the Nutritional Articles of the day,
-          Press “2” for the Workout Articles of the day,
-          Press “3” for the Supplementation Articles of the day,
-          Press “4” for the Motivational Articles of the day,
+          Press “1” for the Top Deals of the day,
+          Press “2” for the Top Articles of the day,
           Or type 'exit' if you do not want to continue."
       end
     end
@@ -62,10 +56,8 @@ class DailyFitness::CLI
     #The list will be called each time an article is activated in the CLI
     #This will ensure the CLI instructions will always be present to the user
     puts"
-    Press “1” for the Nutritional Articles of the day,
-    Press “2” for the Workout Articles of the day,
-    Press “3” for the Supplementation Articles of the day,
-    Press “4” for the Motivational Articles of the day,
+    Press “1” for the Top Deals of the day,
+    Press “2” for the Top Articles of the day,
     Or type 'exit' if you do not want to continue."
   end
 
