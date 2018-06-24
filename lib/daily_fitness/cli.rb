@@ -2,23 +2,12 @@
 class DailyFitness::CLI
 
   def call
-    # introductory_message
+    introductory_message
     # #Calls the intro method
-    # choose
+    choose
     # #Calling choose method
-    deals
-    display_deals
-  end
-
-  def deals
-    top_deals = Scraper.info
-    Deals.create_from_products(top_deals)
-  end
-
-  def display_deals
-    Deals.all.each do |product|
-      puts "#{product.title.upcase}".colorize(:green)
-    end
+    # deals
+    # display_deals
   end
 
   def doc
@@ -45,13 +34,10 @@ class DailyFitness::CLI
         #each case number is assigned to a specific section in bodybuilding.com
         #covering various topics.
         when "1"
-          nutritional_article(doc)
+          deals
+          display_deals
         when "2"
           workout_article(doc)
-        # when "3"
-        #   supplement_article(doc)
-        # when "4"
-        #   motivation_article(doc)
         when "exit"
           closing_message
         else
@@ -77,4 +63,21 @@ class DailyFitness::CLI
   def closing_message
     puts "\nCome back later for daily fitness information and motivation, Goodbye!".colorize(:green)
   end
+end
+
+def deals
+  top_deals = Scraper.info
+  Deals.create_from_products(top_deals)
+end
+
+def display_deals
+   puts "------------Top Deals of the Day------------"
+  Deals.all.each do |product|
+    puts "\n#{product.title.upcase}".colorize(:green) + " - #{product.price}\n" + "
+      Current Promotion -" + " #{product.promotion}\n".colorize(:red) + "
+      This product has a rating of: #{product.rating}
+      Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
+    puts "------------------------"
+  end
+  list
 end

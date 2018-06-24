@@ -13,10 +13,6 @@ class Deals
     top_deals.each {|deal_hash| Deals.new(deal_hash)}
   end
 
-  def add_product_info(attributes)
-    attributes.each {|k, v| self.send(("#{k}="), v)}
-  end
-
   def self.all
     @@all
   end
