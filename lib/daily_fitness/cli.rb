@@ -2,10 +2,23 @@
 class DailyFitness::CLI
 
   def call
-    introductory_message
-    #Calls the intro method
-    choose
-    #Calling choose method
+    # introductory_message
+    # #Calls the intro method
+    # choose
+    # #Calling choose method
+    deals
+    display_deals
+  end
+
+  def deals
+    top_deals = Scraper.info
+    Deals.create_from_products(top_deals)
+  end
+
+  def display_deals
+    Deals.all.each do |product|
+      puts "#{product.title.upcase}".colorize(:green)
+    end
   end
 
   def doc
@@ -63,53 +76,5 @@ class DailyFitness::CLI
 
   def closing_message
     puts "\nCome back later for daily fitness information and motivation, Goodbye!".colorize(:green)
-  end
-
-  def workout_article(doc)
-    @article = DailyFitness::Workout.info(doc)
-    #Goes into the DailyFitness Workout Class and calls the self.info method
-    puts "------------Workout Articles of the Day------------"
-    @article.each do |article|
-      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
-      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
-      puts "\n------------------------"
-    end
-    list
-  end
-
-  def nutritional_article(doc)
-    @article = DailyFitness::Nutrition.info(doc)
-    #Goes into the DailyFitness Nutrition Class and calls the self.info method
-    puts "------------Nutritional Articles of the Day------------"
-    @article.each do |article|
-      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
-      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
-      puts "\n------------------------"
-    end
-    list
-  end
-
-  def supplement_article(doc)
-    @article = DailyFitness::Supplement.info(doc)
-    #Goes into the DailyFitness Supplment Class and calls the self.info method
-    puts "------------Supplementation Articles of the Day------------"
-    @article.each do |article|
-      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
-      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
-      puts "\n------------------------"
-    end
-    list
-  end
-
-  def motivation_article(doc)
-    @article = DailyFitness::Motivation.info(doc)
-    #Goes into the DailyFitness Motivation Class and calls the self.info method
-    puts "------------Motivational Articles of the Day------------"
-    @article.each do |article|
-      puts "\n#{article.title}".colorize(:green) + "\n\n#{article.description}" +
-      "\n\nClick on the link to view the full report -" + " #{article.url}".colorize(:light_blue)
-      puts "\n------------------------"
-    end
-    list
   end
 end
