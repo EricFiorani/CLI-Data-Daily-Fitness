@@ -2,17 +2,17 @@
 
 Welcome to Daily Fitness!
 
-The purpose of this gem is to extract four articles in four different
-categories to provide information to one's fitness lifestyle featured on the bodybuilding website homepage.
+The purpose of this gem is to extract information
+to supplement one's fitness lifestyle with material/products
+featured on the bodybuilding website homepage.
 
-These articles are scraped from BodyBuilding.com and it coded to change as they
-update their featured articles.
-
-The four different categories are:
-    - Workout/Exercise
-    - Nutritional
-    - Supplementation
-    - Motivation
+The Two Different Functions Are:
+    - Top Deals Of The Day
+      - Providing product names, rating, price, promotion value and link to
+        view more.
+    - Top Articles of the Day
+      - Providing article titles, categories, description of article and links
+        to expand to the full report or view the category itself.
 
 ## Installation
 

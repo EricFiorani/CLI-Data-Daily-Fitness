@@ -15,7 +15,7 @@ class DailyFitness::CLI
   def introductory_message
     #Introductory message is first to pop up when activating the CLI.
     puts "Hello! Are you ready to supplement your fitness lifestyle?".colorize(:green) + "
-    \nChoose between four options.
+    \nChoose between two options.
     Press “1” for the Top Deals of the day,
     Press “2” for the Top Articles of the day"
   end
@@ -40,7 +40,7 @@ class DailyFitness::CLI
         when "exit"
           closing_message
         else
-          #If the user does not enter a number 1-4, this message will remind
+          #If the user does not enter a number 1-2, this message will remind
           #them to go over the rules again.
           puts "That is not an option,
           Press “1” for the Top Deals of the day,
