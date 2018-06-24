@@ -6,8 +6,6 @@ class DailyFitness::CLI
     # #Calls the intro method
     choose
     # #Calling choose method
-    # deals
-    # display_deals
   end
 
   def doc
@@ -37,7 +35,8 @@ class DailyFitness::CLI
           deals
           display_deals
         when "2"
-          workout_article(doc)
+          articles
+          display_articles
         when "exit"
           closing_message
         else
@@ -66,7 +65,7 @@ class DailyFitness::CLI
 end
 
 def deals
-  top_deals = Scraper.info
+  top_deals = Scraper.scrape_top_deals
   Deals.create_from_products(top_deals)
 end
 
@@ -77,6 +76,20 @@ def display_deals
       Current Promotion -" + " #{product.promotion}\n".colorize(:red) + "
       This product has a rating of: #{product.rating}
       Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
+    puts "------------------------"
+  end
+  list
+end
+
+def articles
+  top_articles = Scraper.scrape_top_articles
+  Articles.create_from_articles(top_articles)
+end
+
+def display_articles
+   puts "------------Top Articles of the Day------------"
+  Articles.all.each do |article|
+    puts "#{article.title}"
     puts "------------------------"
   end
   list

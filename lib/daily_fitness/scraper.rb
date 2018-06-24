@@ -23,5 +23,20 @@ class Scraper
     # binding.pry
   end
 
+  def self.scrape_top_articles
+    articles = []
+    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
+    doc.css(".NewArticle").each do |article|
+      category = article.css(".NewArticle-category").text
+      category_link = article.css(".NewArticle-category a").attr('href')
+      title = article.css(".NewArticle-title").text
+      description = article.css(".NewArticle-description").text
+      link = article.css(".NewArticle-figure a").attr('href')
+      articles << {category: category, category_link: category_link, title: title, description: description, link: link}
+    end
+    articles
+    # binding.pry
+  end
+
 
 end
