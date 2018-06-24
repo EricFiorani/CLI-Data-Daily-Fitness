@@ -89,7 +89,9 @@ end
 def display_articles
    puts "------------Top Articles of the Day------------"
   Articles.all.each do |article|
-    puts "#{article.title}"
+    puts "\n#{article.title}".colorize(:green) + " - #{article.category}".colorize(:red) + "\n\n#{article.description}" "
+    \nClick on the link to view the full report - " + "#{article.link}".colorize(:blue) + "
+    \nIf you want more related articles on" + " #{article.category}".colorize(:red) + ", click on the link - " + "#{article.category_link}\n".colorize(:light_blue)
     puts "------------------------"
   end
   list
