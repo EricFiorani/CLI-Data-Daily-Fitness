@@ -58,42 +58,42 @@ class DailyFitness::CLI
   def closing_message
     puts "\nCome back later for daily fitness information, motivation, and promotions, Goodbye!".colorize(:green)
   end
-end
 
-def deals
-  #Prompts the method to scrape_top_deals in Scraper first, and with the scraped information to be run through
-  #Create_from_products in deals.rb which initializes the hash and sets it in a class variable
-  #to be iterated over by display_deals
-  top_deals = Scraper.scrape_top_deals
-  Deals.create_from_products(top_deals)
-end
-
-def display_deals
-  #once the deals method creates the hash and sends it to the @@all variable, display_deals
-  #calls .all.each to seperate the information and organizes it on how its further dictated
-   puts "------------Top Deals of the Day------------"
-  Deals.all.each do |product|
-    puts "\n#{product.title.upcase}".colorize(:green) + " - " + "#{product.price}\n".colorize(:white) + "
-      Current Promotion -" + " #{product.promotion}\n".colorize(:red) + "
-      This product has a rating of: #{product.rating}
-      Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
-    puts "------------------------"
+  def deals
+    #Prompts the method to scrape_top_deals in Scraper first, and with the scraped information to be run through
+    #Create_from_products in deals.rb which initializes the hash and sets it in a class variable
+    #to be iterated over by display_deals
+    top_deals = Scraper.scrape_top_deals
+    Deals.create_from_products(top_deals)
   end
-  list #prompts the list again after Top Deals of the day is called on in terminal.
-end
 
-def articles
-  top_articles = Scraper.scrape_top_articles
-  Articles.create_from_articles(top_articles)
-end
-
-def display_articles
-   puts "------------Top Articles of the Day------------"
-  Articles.all.each do |article|
-    puts "\n#{article.title}".colorize(:green) + " - " + "#{article.category}".colorize(:red) + "\n\n#{article.description}" "
-    \nClick on the link to view the full report - " + "#{article.link}".colorize(:blue) + "
-    \nIf you want more related articles on" + " #{article.category}".colorize(:red) + ", click on the link - " + "#{article.category_link}\n".colorize(:light_blue)
-    puts "------------------------"
+  def display_deals
+    #once the deals method creates the hash and sends it to the @@all variable, display_deals
+    #calls .all.each to seperate the information and organizes it on how its further dictated
+     puts "------------Top Deals of the Day------------"
+    Deals.all.each do |product|
+      puts "\n#{product.title.upcase}".colorize(:green) + " - " + "#{product.price}\n".colorize(:white) + "
+        Current Promotion -" + " #{product.promotion}\n".colorize(:red) + "
+        This product has a rating of: #{product.rating}
+        Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
+      puts "------------------------"
+    end
+    list #prompts the list again after Top Deals of the day is called on in terminal.
   end
-  list
+
+  def articles
+    top_articles = Scraper.scrape_top_articles
+    Articles.create_from_articles(top_articles)
+  end
+
+  def display_articles
+     puts "------------Top Articles of the Day------------"
+    Articles.all.each do |article|
+      puts "\n#{article.title}".colorize(:green) + " - " + "#{article.category}".colorize(:red) + "\n\n#{article.description}" "
+      \nClick on the link to view the full report - " + "#{article.link}".colorize(:blue) + "
+      \nIf you want more related articles on" + " #{article.category}".colorize(:red) + ", click on the link - " + "#{article.category_link}\n".colorize(:light_blue)
+      puts "------------------------"
+    end
+    list
+  end
 end
