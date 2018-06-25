@@ -61,11 +61,16 @@ class DailyFitness::CLI
 end
 
 def deals
+  #Prompts the method to scrape_top_deals in Scraper first, and with the scraped information to be run through
+  #Create_from_products in deals.rb which initializes the hash and sets it in a class variable
+  #to be iterated over by display_deals
   top_deals = Scraper.scrape_top_deals
   Deals.create_from_products(top_deals)
 end
 
 def display_deals
+  #once the deals method creates the hash and sends it to the @@all variable, display_deals
+  #calls .all.each to seperate the information and organizes it on how its further dictated
    puts "------------Top Deals of the Day------------"
   Deals.all.each do |product|
     puts "\n#{product.title.upcase}".colorize(:green) + " - " + "#{product.price}\n".colorize(:white) + "
@@ -74,7 +79,7 @@ def display_deals
       Click the link for more information:" + " #{product.link}\n".colorize(:light_blue)
     puts "------------------------"
   end
-  list
+  list #prompts the list again after Top Deals of the day is called on in terminal.
 end
 
 def articles

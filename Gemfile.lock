@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    daily_fitness (0.1.0)
+    daily_fitness (0.2.0)
       colorize
       nokogiri
 
