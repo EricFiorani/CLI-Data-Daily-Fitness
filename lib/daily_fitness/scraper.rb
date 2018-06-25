@@ -4,10 +4,6 @@ class Scraper
     self.scrape_top_deals
   end
 
-  # def doc
-  #   @doc ||= Nokogiri::HTML(open("https://bodybuilding.com"))
-  # end
-
   def self.scrape_top_deals
     products = []
     doc = Nokogiri::HTML(open("https://bodybuilding.com"))

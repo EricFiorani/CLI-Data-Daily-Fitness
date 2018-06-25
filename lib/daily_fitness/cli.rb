@@ -8,10 +8,6 @@ class DailyFitness::CLI
     # #Calling choose method
   end
 
-  def doc
-    @doc ||= Nokogiri::HTML(open("https://bodybuilding.com"))
-  end
-
   def introductory_message
     #Introductory message is first to pop up when activating the CLI.
     puts "Hello! Are you ready to supplement your fitness lifestyle?".colorize(:green) + "
