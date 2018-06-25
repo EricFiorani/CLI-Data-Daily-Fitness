@@ -2,12 +2,16 @@ class Scraper
 
   def self.info
     self.scrape_top_deals
+    self.scrape_top_articles
+  end
+
+  def self.doc
+    @doc ||= Nokogiri::HTML(open("https://bodybuilding.com"))
   end
 
   def self.scrape_top_deals
     products = []
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
-    doc.css(".FeaturedProduct").each do |product|
+    self.doc.css(".FeaturedProduct").each do |product|
       promotion = product.css(".FeaturedProduct-promo").text
       title = product.css(".FeaturedProduct-title").text
       price = product.css(".FeaturedProduct-price").text
@@ -21,8 +25,7 @@ class Scraper
 
   def self.scrape_top_articles
     articles = []
-    doc = Nokogiri::HTML(open("https://bodybuilding.com"))
-    doc.css(".NewArticle").each do |article|
+    self.doc.css(".NewArticle").each do |article|
       category = article.css(".NewArticle-category").text
       category_link = article.css(".NewArticle-category a").attr('href')
       title = article.css(".NewArticle-title").text
