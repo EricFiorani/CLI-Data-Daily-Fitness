@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Eric Fiorani'"]
   spec.email         = ["'efiorani305@gmail.com'"]
 
-  spec.summary       = %q{Scrapes bodybuilding.com for the daily fitness/nutritional/motivational articles.}
+  spec.summary       = %q{Scrapes bodybuilding.com for the daily fitness/nutritional/motivational articles and top deals.}
   spec.description   = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"
